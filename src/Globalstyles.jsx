@@ -51,7 +51,7 @@ img {
 `;
 
 export const Container = styled.div`
-  max-width: 1280px;
+  max-width: 1500px;
   width: 100%;
   margin: 0 auto;
   padding: 0 24px;
@@ -64,4 +64,15 @@ export const Wrapper = styled.div.withConfig({
   justify-content: ${(props) => (props.justifyContent ? props.justifyContent : "space-between")};
   align-items: ${(props) => (props.alignItems ? props.alignItems : "center")};
   gap: ${(props) => (props.gap ? props.gap : "")};
+`;
+
+export const GridSystem = styled.ul.withConfig({
+  shouldForwardProp: (prop) => !["gap", "columns", "rows"].includes(prop),
+})`
+  display: grid;
+  grid-template-columns: repeat(${(props) => (props.columns ? props.columns : "auto")}, 1fr);
+  grid-gap: ${(props) => (props.gap ? props.gap : "")};
+  margin-block: 0;
+  padding-left: 0;
+  list-style: none;
 `;
