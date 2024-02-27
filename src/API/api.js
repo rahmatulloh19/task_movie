@@ -12,4 +12,20 @@ export const api = {
     });
     return response;
   },
+  getTopRatedMovies: async () => {
+    const response = await axios.get(`${BASE_URL}/movie/top_rated`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response;
+  },
+  getUpcomingMovies: async () => {
+    const response = await axios.get(`${BASE_URL}/movie/upcoming`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response;
+  },
 };

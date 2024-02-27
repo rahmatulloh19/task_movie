@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { Container, GridSystem, Wrapper } from "../../Globalstyles";
 import { StyledHeroSection, StyledInput, StyledMovieItem } from "./styled.herohome";
 import { api } from "../../API/api";
+import { useLocation } from "react-router-dom";
 
 export const HeroHome = () => {
+  const { pathname } = useLocation();
   const [movie, setMovie] = useState({});
 
   const getMovies = async () => {
-    const data = await api.getPopularMovies();
+    const data = pathname === "/" ? await api.getPopularMovies() : pathname === "/top-rated" ? await api.getTopRatedMovies() : await api.getUpcomingMovies();
     setMovie(data.data.results);
 
     console.log(data);

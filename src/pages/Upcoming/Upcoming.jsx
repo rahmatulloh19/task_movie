@@ -1,3 +1,9 @@
+import { HeroHome } from "../../components/HeroHome/HeroHome";
+
 export const Upcoming = () => {
-  return <div>Upcoming</div>;
+  return (
+    <>
+      <HeroHome />
+    </>
+  );
 };
