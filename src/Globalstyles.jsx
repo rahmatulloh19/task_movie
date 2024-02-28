@@ -58,12 +58,14 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div.withConfig({
-  shouldForwardProp: (prop) => !["justifyContent", "alignItems", "gap"].includes(prop),
+  shouldForwardProp: (prop) => !["justifyContent", "alignItems", "gap", "flexDirection", "wrap"].includes(prop),
 })`
   display: flex;
   justify-content: ${(props) => (props.justifyContent ? props.justifyContent : "space-between")};
   align-items: ${(props) => (props.alignItems ? props.alignItems : "center")};
   gap: ${(props) => (props.gap ? props.gap : "")};
+  flex-direction: ${(props) => (props.flexDirection ? props.flexDirection : "")};
+  flex-wrap: ${(props) => (props.wrap ? props.wrap : "")};
 `;
 
 export const GridSystem = styled.ul.withConfig({

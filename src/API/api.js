@@ -36,4 +36,20 @@ export const api = {
     });
     return response;
   },
+  getSingleMovieRecommendation: async (id) => {
+    const response = await axios.get(`${BASE_URL}/movie/${id}/recommendations`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response;
+  },
+  getSingleMovieActors: async (id) => {
+    const response = await axios.get(`${BASE_URL}/movie/${id}/credits`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response;
+  },
 };
