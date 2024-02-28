@@ -28,4 +28,12 @@ export const api = {
     });
     return response;
   },
+  getSingleMovie: async (id) => {
+    const response = await axios.get(`${BASE_URL}/movie/${id}`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response;
+  },
 };

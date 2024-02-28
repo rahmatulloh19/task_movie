@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
         element: <Upcoming />,
       },
       {
-        path: "/:single-page",
+        path: "/:single_page",
         element: <SinglePage />,
       },
     ],
