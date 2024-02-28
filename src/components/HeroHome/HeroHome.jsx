@@ -16,7 +16,7 @@ export const HeroHome = () => {
   };
 
   const handleClick = (movie_id) => {
-    navigate(`/${movie_id}`);
+    navigate(`movie/${movie_id}`);
   };
 
   useEffect(() => {

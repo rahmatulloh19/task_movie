@@ -4,6 +4,7 @@ import { Home } from "./pages/Home/Home";
 import { TopRated } from "./pages/TopRated/TopRated";
 import { Upcoming } from "./pages/Upcoming/Upcoming";
 import { SinglePage } from "./pages/SinglePage/SinglePage";
+import { ActorPage } from "./pages/ActorPage/ActorPage";
 
 export const router = createBrowserRouter([
   {
@@ -24,8 +25,20 @@ export const router = createBrowserRouter([
         element: <Upcoming />,
       },
       {
-        path: "/:single_page",
+        path: "movie/:single_page",
         element: <SinglePage />,
+      },
+      {
+        path: "actor/:single_page",
+        element: <ActorPage />,
+      },
+      {
+        path: "*",
+        element: (
+          <>
+            <h1>404 ERROR !!!</h1>
+          </>
+        ),
       },
     ],
   },

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Container, Wrapper } from "../../Globalstyles";
 import { useEffect, useState } from "react";
 import { api } from "../../API/api";
@@ -6,7 +6,10 @@ import { StyledImage, StyledItem, StyledItemImage, StyledText, StyledTitle } fro
 import { StyledList } from "../../components/Header/styled.header";
 
 export const SinglePage = () => {
+  const navigate = useNavigate();
+
   const { single_page } = useParams();
+  console.log(single_page);
   const [movie, setMovie] = useState({});
   const [movieRecommendation, setMovieRecommendation] = useState([]);
   const [movieActors, setMovieActors] = useState([]);
@@ -20,13 +23,11 @@ export const SinglePage = () => {
 
     const recommendations = await api.getSingleMovieRecommendation(single_page);
     setMovieRecommendation(recommendations.data.results);
-
-    console.log(recommendations);
   };
 
   useEffect(() => {
     getMovie();
-  }, []);
+  }, [single_page]);
 
   return movie.title ? (
     <>
@@ -60,7 +61,12 @@ export const SinglePage = () => {
             movieActors.map((actor) => {
               return (
                 actor.profile_path && (
-                  <StyledItem key={actor.id}>
+                  <StyledItem
+                    key={actor.id}
+                    onClick={() => {
+                      navigate(`/actor/${actor.id}`);
+                    }}
+                  >
                     <StyledItemImage src={`https://image.tmdb.org/t/p/w220_and_h330_face/${actor.profile_path}`} />
                     <StyledText>{actor.name}</StyledText>
                   </StyledItem>
@@ -73,7 +79,12 @@ export const SinglePage = () => {
           {movieRecommendation.length &&
             movieRecommendation.map((movie) => {
               return (
-                <StyledItem key={movie.id}>
+                <StyledItem
+                  key={movie.id}
+                  onClick={() => {
+                    navigate(`/movie/${movie.id}`);
+                  }}
+                >
                   <StyledItemImage src={`https://image.tmdb.org/t/p/w220_and_h330_face/${movie.poster_path}`} />
                   <StyledText style={{ fontSize: "12px" }}>{movie.title}</StyledText>
                 </StyledItem>
