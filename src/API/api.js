@@ -52,4 +52,20 @@ export const api = {
     });
     return response;
   },
+  getActor: async (id) => {
+    const response = await axios.get(`${BASE_URL}/person/${id}`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response;
+  },
+  getActorMovies: async (id) => {
+    const response = await axios.get(`${BASE_URL}/person/${id}/movie_credits`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response;
+  },
 };
