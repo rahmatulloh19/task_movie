@@ -4,6 +4,13 @@ export const StyledHeroSection = styled.section`
   padding-block: 40px;
 `;
 
+export const StyledWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+`;
+
 export const StyledInput = styled.input.attrs({
   type: "text",
   placeholder: "Search movies...",

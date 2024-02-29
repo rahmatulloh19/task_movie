@@ -9,7 +9,6 @@ export const SinglePage = () => {
   const navigate = useNavigate();
 
   const { single_page } = useParams();
-  console.log(single_page);
   const [movie, setMovie] = useState({});
   const [movieRecommendation, setMovieRecommendation] = useState([]);
   const [movieActors, setMovieActors] = useState([]);

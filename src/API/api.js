@@ -68,4 +68,13 @@ export const api = {
     });
     return response;
   },
+  search: async (name) => {
+    const response = await axios.get(`${BASE_URL}/search/movie`, {
+      params: {
+        api_key: API_KEY,
+        query: name,
+      },
+    });
+    return response;
+  },
 };

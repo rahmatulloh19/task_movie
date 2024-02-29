@@ -19,8 +19,6 @@ export const ActorPage = () => {
 
     const actorMovies = await api.getActorMovies(single_page);
     setActorMovies(actorMovies.data.cast);
-
-    console.log(actorMovies);
   };
   useEffect(() => {
     getData();
